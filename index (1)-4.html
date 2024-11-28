@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cost Calculator</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    h2 {
+        text-align: center;
+        color: #333;
+        margin-top: 20px;
+    }
+    table {
+        border-collapse: collapse;
+        width: 80%;
+        margin: 20px auto;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    input[type="number"] {
+        width: 80px;
+    }
+    input[type="text"] {
+        width: 100%;
+        border: none;
+        background: transparent;
+    }
+    input[type="text"]:focus {
+        outline: none;
+        border-color: #4CAF50;
+    }
+    span {
+        font-weight: bold;
+    }
+
+    table td:first-child {
+        min-width: 200px; 
+        width: auto;
+    }
+</style>
+</head>
+<body>
+
+<h2>ESTRUCTURA DE COSTOS</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>COSTOS FIJOS</th>
+            <th>Semana 1</th>
+            <th>Semana 2</th>
+            <th>Semana 3</th>
+            <th>Semana 4</th>
+            <th>Mensual</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><input type="text" id="cost1" value="Renta del local"></td>
+            <td><input type="number" id="rent1" value="900"></td>
+            <td><input type="number" id="rent2" value="0"></td>
+            <td><input type="number" id="rent3" value="0"></td>
+            <td><input type="number" id="rent4" value="0"></td>
+            <td><span id="rentTotal">0</span></td>
+        </tr>
+        <tr>
+            <td><input type="text" id="cost2" value="Energia electrica"></td>
+            <td><input type="number" id="energy1" value="150"></td>
+            <td><input type="number" id="energy2" value="0"></td>
+            <td><input type="number" id="energy3" value="0"></td>
+            <td><input type="number" id="energy4" value="0"></td>
+            <td><span id="energyTotal">0</span></td>
+        </tr>
+        <tr>
+            <td><input type="text" id="cost3" value="Internet"></td>
+            <td><input type="number" id="internet1" value="389"></td>
+            <td><input type="number" id="internet2" value="0"></td>
+            <td><input type="number" id="internet3" value="0"></td>
+            <td><input type="number" id="internet4" value="0"></td>
+            <td><span id="internetTotal">0</span></td>
+        </tr>
+        <tr>
+            <td><input type="text" id="cost4" value="Agua potable"></td>
+            <td><input type="number" id="water1" value="157"></td>
+            <td><input type="number" id="water2" value="0"></td>
+            <td><input type="number" id="water3" value="0"></td>
+            <td><input type="number" id="water4" value="0"></td>
+            <td><span id="waterTotal">0</span></td>
+        </tr>
+        <tr>
+            <td><input type="text" id="cost5" value="Transporte"></td>
+            <td><input type="number" id="transport1" value="150"></td>
+            <td><input type="number" id="transport2" value="150"></td>
+            <td><input type="number" id="transport3" value="150"></td>
+            <td><input type="number" id="transport4" value="150"></td>
+            <td><span id="transportTotal">0</span></td>
+        </tr>
+        <tr>
+            <td><input type="text" id="cost6" value="Sueldo de empleados"></td>
+            <td><input type="number" id="salary1" value="1000"></td>
+            <td><input type="number" id="salary2" value="1000"></td>
+            <td><input type="number" id="salary3" value="1000"></td>
+            <td><input type="number" id="salary4" value="1000"></td>
+            <td><span id="salaryTotal">0</span></td>
+        </tr>
+        <tr>
+            <td><strong>TOTAL</strong></td>
+            <td><span id="total1">0</span></td>
+            <td><span id="total2">0</span></td>
+            <td><span id="total3">0</span></td>
+            <td><span id="total4">0</span></td>
+            <td><span id="monthlyTotal">0</span></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Trabajador</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Trabajador</th>
+            <th>Semana 1</th>
+            <th>Semana 2</th>
+            <th>Semana 3</th>
+            <th>Semana 4</th>
+            <th>Mensual</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><input type="text" id="worker1" value="A"></td>
+            <td><input type="number" id="worker1_week1" value="250"></td>
+            <td><input type="number" id="worker1_week2" value="250"></td>
+            <td><input type="number" id="worker1_week3" value="250"></td>
+            <td><input type="number" id="worker1_week4" value="250"></td>
+            <td><span id="worker1Total">0</span></td>
+        </tr>
+        <tr>
+            <td><input type="text" id="worker2" value="B"></td>
+            <td><input type="number" id="worker2_week1" value="250"></td>
+            <td><input type="number" id="worker2_week2" value="250"></td>
+            <td><input type="number" id="worker2_week3" value="250"></td>
+            <td><input type="number" id="worker2_week4" value="250"></td>
+            <td><span id="worker2Total">0</span></td>
+        </tr>
+        <tr>
+            <td><input type="text" id="worker3" value="C"></td>
+            <td><input type="number" id="worker3_week1" value="250"></td>
+            <td><input type="number" id="worker3_week2" value="250"></td>
+            <td><input type="number" id="worker3_week3" value="250"></td>
+            <td><input type="number" id="worker3_week4" value="250"></td>
+            <td><span id="worker3Total">0</span></td>
+        </tr>
+        <tr>
+            <td><input type="text" id="worker4" value="D"></td>
+            <td><input type="number" id="worker4_week1" value="250"></td>
+            <td><input type="number" id="worker4_week2" value="250"></td>
+            <td><input type="number" id="worker4_week3" value="250"></td>
+            <td><input type="number" id="worker4_week4" value="250"></td>
+            <td><span id="worker4Total">0</span></td>
+        </tr>
+        <tr>
+            <td><strong>TOTAL</strong></td>
+            <td><span id="workerTotal1">0</span></td>
+            <td><span id="workerTotal2">0</span></td>
+            <td><span id="workerTotal3">0</span></td>
+            <td><span id="workerTotal4">0</span></td>
+            <td><span id="workerMonthlyTotal">0</span></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>COSTOS VARIABLES</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>PRODUCTO</th>
+            <th>PRESENTACION</th>
+            <th>CANTIDAD</th>
+            <th>UNIDAD</th>
+            <th>PRECIO</th>
+            <th>COSTO UNITARIO</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><input type="text" value="Atomizador"></td>
+            <td>Paquete 300 ml</td>
+            <td><input type="number" id="atomizadorCantidad" value="4"></td>
+            <td>Ind</td>
+            <td><input type="number" id="atomizadorPrecio" value="52"></td>
+            <td><span id="atomizadorCostoUnitario">0</span></td>
+        </tr>
+        <tr>
+            <td><input type="text" value="Albahaca"></td>
+            <td>Kilo</td>
+            <td><input type="number" id="albahacaCantidad" value="1000"></td>
+            <td>gr</td>
+            <td><input type="number" id="albahacaPrecio" value="40"></td>
+            <td><span id="albahacaCostoUnitario">0</span></td>
+        </tr>
+        <tr>
+            <td><input type="text" value="Alcohol"></td>
+            <td>litro</td>
+            <td><input type="number" id="alcoholCantidad" value="1000"></td>
+            <td>ml</td>
+            <td><input type="number" id="alcoholPrecio" value="75"></td>
+            <td><span id="alcoholCostoUnitario">0</span></td>
+        </tr>
+        <tr>
+            <td><input type="text" value="Aceite de eucalipto"></td>
+            <td>pza</td>
+            <td><input type="number" id="aceiteCantidad" value="60"></td>
+            <td>ml</td>
+            <td><input type="number" id="aceitePrecio" value="30"></td>
+            <td><span id="aceiteCostoUnitario">0</span></td>
+        </tr>
+        <tr>
+            <td><input type="text" value="Agua"></td>
+            <td>litro</td>
+            <td><input type="number" id="aguaCantidad" value="1000"></td>
+            <td>ml</td>
+            <td><input type="number" id="aguaPrecio" value="12"></td>
+            <td><span id="aguaCostoUnitario">0</span></td>
+        </tr>
+        <tr>
+            <td><input type="text" value="Etiquetas"></td>
+
+            <td>Paquete</td>
+            <td><input type="number" id="etiquetasCantidad" value="4"></td>
+            <td>ind</td>
+            <td><input type="number" id="etiquetasPrecio" value="10"></td>
+            <td><span id="etiquetasCostoUnitario">0</span></td>
+        </tr>
+        <tr>
+            <td><input type="text" value="Bolsa de empaque"></td>
+            <td>Paquete</td>
+            <td><input type="number" id="bolsaCantidad" value="90"></td>
+            <td>ind</td>
+            <td><input type="number" id="bolsaPrecio" value="90"></td>
+            <td><span id="bolsaCostoUnitario">0</span></td>
+        </tr>
+        <tr>
+            <td><strong>TOTAL</strong></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><span id="variableCostTotal">0</span></td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h2>FICHA TECNICA</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>PRODUCTO</th>
+            <th>CANTIDAD</th>
+            <th>UNIDAD</th>
+            <th>COSTO</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><input type="text" id="atomizadorNombrek" value="Atomizador"></td>
+            <td><input type="number" id="atomizadorCantidadk" value="1"></td>
+            <td>Ind</td>
+            <td><span id="atomizadorCostok">0</span></td>
+        </tr>
+        <tr>
+            <td><input type="text" id="albahacaNombrek" value="Albahaca"></td>
+            <td><input type="number" id="albahacaCantidadk" value="75"></td>
+            <td>gr</td>
+            <td><span id="albahacaCostok">0</span></td>
+        </tr>
+        <tr>
+            <td><input type="text" id="alcoholNombrek" value="Alcohol"></td>
+            <td><input type="number" id="alcoholCantidadk" value="125"></td>
+            <td>ml</td>
+            <td><span id="alcoholCostok">0</span></td>
+        </tr>
+        <tr>
+            <td><input type="text" id="aceiteNombrek" value="Aceite de eucalipto"></td>
+            <td><input type="number" id="aceiteCantidadk" value="5"></td>
+            <td>ml</td>
+            <td><span id="aceiteCostok">0</span></td>
+        </tr>
+        <tr>
+            <td><input type="text" id="aguaNombrek" value="Agua"></td>
+            <td><input type="number" id="aguaCantidadk" value="125"></td>
+            <td>ml</td>
+            <td><span id="aguaCostok">0</span></td>
+        </tr>
+        <tr>
+            <td><input type="text" id="bolsaNombrek" value="Bolsa de empaque"></td>
+            <td><input type="number" id="bolsaCantidadk" value="1"></td>
+            <td>ind</td>
+            <td><span id="bolsaCostok">0</span></td>
+        </tr>
+        <tr>
+            <td><input type="text" id="etiquetasNombrek" value="Etiquetas"></td>
+            <td><input type="number" id="etiquetasCantidadk" value="1"></td>
+            <td>ind</td>
+            <td><span id="etiquetasCostok">0</span></td>
+        </tr>
+        <tr>
+            <td><strong>TOTAL</strong></td>
+            <td></td>
+            <td></td>
+            <td><span id="totalCostok">0</span></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>EMPRESA COMERCIAL (Compra productos y los revende)</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th colspan="3">PRODUCTO</th>
+            <th colspan="3">CANTIDAD</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td colspan="3"><input type="text" value="Margen de utilidad"></td>
+            <td colspan="4"><input type="number" id="margan" value="10">%</td>
+            
+        </tr>
+        <tr>
+            <td colspan="3"><input type="text" value="IVA"></td>
+            <td colspan="4"><input type="number" id="IVA" value="16">%</td>
+         </tr>
+
+         <tr>
+            <td colspan="1" style="width:100px;">PV</td>
+            <td colspan="1" id="PV_Val1" style="width:100px;">Value PV</td>
+            <td colspan="1" style="width:100px;">IVA</td>
+            <td colspan="1" id="IVA_Val1" style="width:100px;">Value</td>
+             <td colspan="1"  style="width:100px;">PV+IVA</td>
+             <td colspan="1" id="PV_IV_Val" style="width:100px;">Value</td>
+         </tr>
+          
+        <tr>
+            <th colspan="6">EMPRESA PRODUCTORA (Elabora sus productos)</th>
+
+             <tr>
+                <td colspan="1" style="width:100px;">PV</td>
+                <td colspan="1" style="width:100px;" id="PV_Val2">Value PV</td>
+                <td colspan="1" style="width:100px;" >IVA</td>
+                <td colspan="1" style="width:100px;" id="IVA_Val2">Value</td>
+                <td colspan="1" style="width:100px;">PV+IVA</td>
+                <td colspan="1" style="width:100px;" id="PV_IV_Val2">Value</td>
+            </tr>
+        </tr>
+
+    </tbody>
+</table>
+
+<script>
+    function calculateCosts() {
+        let rentTotal = 0;
+        let energyTotal = 0;
+        let internetTotal = 0;
+        let waterTotal = 0;
+        let transportTotal = 0;
+        let salaryTotal = 0;
+
+        for (let i = 1; i <= 4; i++) {
+            let rent = parseFloat(document.getElementById('rent' + i).value);
+            let energy = parseFloat(document.getElementById('energy' + i).value);
+            let internet = parseFloat(document.getElementById('internet' + i).value);
+            let water = parseFloat(document.getElementById('water' + i).value);
+            let transport = parseFloat(document.getElementById('transport' + i).value);
+            let salary = parseFloat(document.getElementById('salary' + i).value);
+
+            rentTotal += rent;
+            energyTotal += energy;
+            internetTotal += internet;
+            waterTotal += water;
+            transportTotal += transport;
+            salaryTotal += salary;
+
+            document.getElementById('total' + i).textContent = (rent + energy + internet + water + transport + salary).toFixed(2);
+        }
+
+        document.getElementById('rentTotal').textContent = rentTotal.toFixed(2);
+        document.getElementById('energyTotal').textContent = energyTotal.toFixed(2);
+        document.getElementById('internetTotal').textContent = internetTotal.toFixed(2);
+        document.getElementById('waterTotal').textContent = waterTotal.toFixed(2);
+        document.getElementById('transportTotal').textContent = transportTotal.toFixed(2);
+        document.getElementById('salaryTotal').textContent = salaryTotal.toFixed(2);
+
+        let monthlyTotal = rentTotal + energyTotal + internetTotal + waterTotal + transportTotal + salaryTotal;
+        document.getElementById('monthlyTotal').textContent = monthlyTotal.toFixed(2);
+    }
+
+    function calculateWorkerCosts() {
+        let workerTotal1 = parseFloat(document.getElementById('worker1_week1').value) + parseFloat(document.getElementById('worker2_week1').value) + parseFloat(document.getElementById('worker3_week1').value) + parseFloat(document.getElementById('worker4_week1').value);
+        let workerTotal2 = parseFloat(document.getElementById('worker1_week2').value) + parseFloat(document.getElementById('worker2_week2').value) + parseFloat(document.getElementById('worker3_week2').value) + parseFloat(document.getElementById('worker4_week2').value);
+        let workerTotal3 = parseFloat(document.getElementById('worker1_week3').value) + parseFloat(document.getElementById('worker2_week3').value) + parseFloat(document.getElementById('worker3_week3').value) + parseFloat(document.getElementById('worker4_week3').value);
+        let workerTotal4 = parseFloat(document.getElementById('worker1_week4').value) + parseFloat(document.getElementById('worker2_week4').value) + parseFloat(document.getElementById('worker3_week4').value) + parseFloat(document.getElementById('worker4_week4').value);
+
+        document.getElementById('workerTotal1').textContent = workerTotal1.toFixed(2);
+        document.getElementById('workerTotal2').textContent = workerTotal2.toFixed(2);
+        document.getElementById('workerTotal3').textContent = workerTotal3.toFixed(2);
+        document.getElementById('workerTotal4').textContent = workerTotal4.toFixed(2);
+
+        let workerMonthlyTotal = workerTotal1 + workerTotal2 + workerTotal3 + workerTotal4;
+        document.getElementById('workerMonthlyTotal').textContent = workerMonthlyTotal.toFixed(2);
+    }
+
+    // Calculate totals initially
+    calculateCosts();
+    calculateWorkerCosts();
+
+    // Add event listeners to input fields
+    const costInputs = document.querySelectorAll('input[type="number"]');
+    costInputs.forEach(input => {
+        input.addEventListener('input', calculateCosts);
+    });
+
+    const workerInputs = document.querySelectorAll('#worker1_week1, #worker1_week2, #worker1_week3, #worker1_week4, #worker2_week1, #worker2_week2, #worker2_week3, #worker2_week4, #worker3_week1, #worker3_week2, #worker3_week3, #worker3_week4, #worker4_week1, #worker4_week2, #worker4_week3, #worker4_week4');
+    workerInputs.forEach(input => {
+        input.addEventListener('input', calculateWorkerCosts);
+    });
+
+      function calculateVariableCosts() {
+        let atomizadorCost = parseFloat(document.getElementById('atomizadorPrecio').value) / parseFloat(document.getElementById('atomizadorCantidad').value);
+        let albahacaCost = parseFloat(document.getElementById('albahacaPrecio').value) / parseFloat(document.getElementById('albahacaCantidad').value);
+        let alcoholCost = parseFloat(document.getElementById('alcoholPrecio').value) / parseFloat(document.getElementById('alcoholCantidad').value);
+        let aceiteCost = parseFloat(document.getElementById('aceitePrecio').value) / parseFloat(document.getElementById('aceiteCantidad').value);
+        let aguaCost = parseFloat(document.getElementById('aguaPrecio').value) / parseFloat(document.getElementById('aguaCantidad').value);
+        let etiquetasCost = parseFloat(document.getElementById('etiquetasPrecio').value) / parseFloat(document.getElementById('etiquetasCantidad').value);
+        let bolsaCost = parseFloat(document.getElementById('bolsaPrecio').value) / parseFloat(document.getElementById('bolsaCantidad').value);
+
+        document.getElementById('atomizadorCostoUnitario').textContent = atomizadorCost.toFixed(2);
+        document.getElementById('albahacaCostoUnitario').textContent = albahacaCost.toFixed(2);
+        document.getElementById('alcoholCostoUnitario').textContent = alcoholCost.toFixed(2);
+        document.getElementById('aceiteCostoUnitario').textContent = aceiteCost.toFixed(2);
+        document.getElementById('aguaCostoUnitario').textContent = aguaCost.toFixed(2);
+        document.getElementById('etiquetasCostoUnitario').textContent = etiquetasCost.toFixed(2);
+        document.getElementById('bolsaCostoUnitario').textContent = bolsaCost.toFixed(2);
+
+        let variableCostTotal = atomizadorCost + albahacaCost + alcoholCost + aceiteCost + aguaCost + etiquetasCost + bolsaCost;
+        document.getElementById('variableCostTotal').textContent = variableCostTotal.toFixed(2);
+    }
+
+    // Calculate totals initially
+    calculateVariableCosts();
+
+    // Add event listeners to input fields
+    const variableCostInputs = document.querySelectorAll('input[type="number"]');
+    variableCostInputs.forEach(input => {
+        input.addEventListener('input', calculateVariableCosts);
+    });
+
+    // add
+    function calculateCostsk() {
+        let atomizadorCost = parseFloat(document.getElementById('atomizadorCantidadk').value) * 13;
+        let albahacaCost = parseFloat(document.getElementById('albahacaCantidadk').value) * 0.04;
+        let alcoholCost = parseFloat(document.getElementById('alcoholCantidadk').value) * 0.075;
+        let aceiteCost = parseFloat(document.getElementById('aceiteCantidadk').value) * 0.5;
+        let aguaCost = parseFloat(document.getElementById('aguaCantidadk').value) * 0.012;
+        let bolsaCost = parseFloat(document.getElementById('bolsaCantidadk').value) * 1;
+        let etiquetasCost = parseFloat(document.getElementById('etiquetasCantidadk').value) * 2.5;
+
+        document.getElementById('atomizadorCostok').textContent = atomizadorCost.toFixed(2);
+        document.getElementById('albahacaCostok').textContent = albahacaCost.toFixed(2);
+        document.getElementById('alcoholCostok').textContent = alcoholCost.toFixed(2);
+        document.getElementById('aceiteCostok').textContent = aceiteCost.toFixed(2);
+        document.getElementById('aguaCostok').textContent = aguaCost.toFixed(2);
+        document.getElementById('bolsaCostok').textContent = bolsaCost.toFixed(2);
+        document.getElementById('etiquetasCostok').textContent = etiquetasCost.toFixed(2);
+
+        let totalCost = atomizadorCost + albahacaCost + alcoholCost + aceiteCost + aguaCost + bolsaCost + etiquetasCost;
+        document.getElementById('totalCostok').textContent = totalCost.toFixed(2);
+    }
+
+    // Calculate totals initially
+    calculateCostsk();
+
+    // Add event listeners to input fields
+    const costInputsk = document.querySelectorAll('input[type="number"]');
+    costInputsk.forEach(input => {
+        input.addEventListener('input', calculateCostsk);
+    }); 
+
+    function calculateLast() {
+        var PV1 = (Number(totalCostok.innerText)/(1-margan.value/100)).toFixed(2);
+        var IVA1 = (Number(PV1)*IVA.value/100).toFixed(2);
+        var PVAIVA1 = (Number(PV1)+Number(IVA1)).toFixed(2);
+        PV_IV_Val.innerText = PVAIVA1;
+        PV_Val1.innerText = PV1;
+        IVA_Val1.innerText = IVA1;
+
+
+
+        var PV2 = (Number(totalCostok.innerText)*(1+margan.value/100)).toFixed(2);
+        var IVA2 = (Number(PV2)*IVA.value/100).toFixed(2);
+        var PVAIVA2 = (Number(PV2)+Number(IVA2)).toFixed(2);
+        PV_IV_Val2.innerText = PVAIVA2;
+        PV_Val2.innerText = PV2;
+        IVA_Val2.innerText = IVA2;
+
+        console.log(PV2,'PV2');
+        console.log(IVA2,'IVA2');
+        console.log(PVAIVA2,'PVAIVA2');
+
+    }
+
+    calculateLast();
+
+ // Add event listeners to input fields
+ const Inputs = document.querySelectorAll('input[type="number"]');
+ Inputs.forEach(input => {
+        input.addEventListener('input', calculateLast);
+    }); 
+
+    
+</script>
+
+</body>
+</html>
